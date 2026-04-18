@@ -1,0 +1,103 @@
+@import "tailwindcss";
+
+@theme {
+  --color-navy: #1a2744;
+  --color-navy-light: #243556;
+  --color-navy-dark: #0f1a30;
+  --color-steel: #64748b;
+  --color-steel-light: #94a3b8;
+  --color-accent: #8b1a2b;
+  --color-accent-light: #a52439;
+  --color-accent-dark: #6b1420;
+  --color-industrial: #e8eaed;
+  --color-warm-gray: #f5f5f4;
+  --font-sans: 'Inter', 'Roboto', system-ui, -apple-system, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', 'Roboto', system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Scroll-triggered fade-in animations */
+.fade-in-section {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+}
+
+.fade-in-section.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Hero parallax-like subtle effect */
+.hero-bg {
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+@media (max-width: 768px) {
+  .hero-bg {
+    background-attachment: scroll;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #64748b;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #475569;
+}
+
+/* Gradient text */
+.gradient-text {
+  background: linear-gradient(135deg, #1a2744 0%, #8b1a2b 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Card hover effects */
+.service-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(26, 39, 68, 0.12);
+}
+
+/* Button pulse for primary CTA */
+.btn-pulse {
+  animation: subtle-pulse 2s infinite;
+}
+
+@keyframes subtle-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(139, 26, 43, 0.4); }
+  50% { box-shadow: 0 0 0 8px rgba(139, 26, 43, 0); }
+}
+
+/* Stats counter styling */
+.stat-number {
+  font-variant-numeric: tabular-nums;
+}
+
